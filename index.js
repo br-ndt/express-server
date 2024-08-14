@@ -7,7 +7,7 @@ dotenv.config();
 const __filename = url.fileURLToPath(import.meta.url);
 
 const HOST = "0.0.0.0";
-const PORT = process.env.NODE_ENV === "development" ? 5000 : 5173;
+const PORT = process.env.NODE_ENV === "development" ? 5000 : process.env.PROJECT_PORT;
 
 const express = createExpressApp(__filename);
 
