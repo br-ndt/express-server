@@ -9,7 +9,9 @@ const createExpressApp = (serverFileName) => {
 
   const app = express();
   app.use(express.json());
-  app.use(express.static(path.join(server__dirname, "static")));
+  app.use(
+    express.static(path.join(server__dirname, "static", process.env.PROJECT))
+  );
 
   app.get("/", staticIndexResponse);
 

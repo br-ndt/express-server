@@ -4,7 +4,13 @@ import url from "url";
 
 const staticIndexResponse = (req, res, next) => {
   const __filepath = url.fileURLToPath(import.meta.url);
-  const staticIndex = path.join(__filepath, "../..", "static", "index.html");
+  const staticIndex = path.join(
+    __filepath,
+    "../..",
+    "static",
+    process.env.PROJECT || undefined,
+    "index.html"
+  );
   fs.readFile(staticIndex, (err, data) => {
     if (err) {
       next(err);
